@@ -428,6 +428,24 @@ namespace B83.ExpressionParser
                 }
                 index = aExpression.IndexOf('(');
             }
+            // //Nosso
+            // if (aExpression.Contains('.'))
+            // {
+            //     //string[] parts = aExpression.Split('.');
+            //     List<IValue> exp = new List<IValue>(parts.Length);
+            //     for (int i = 0; i < parts.Length; i++)
+            //     {
+            //         string s = parts[i].Trim();
+            //         if (!string.IsNullOrEmpty(s))
+            //         {
+            //             var val = Parse(s, ref aError);
+            //             if (val == null)
+            //                 return null;
+            //             exp.Add(val);
+            //         }
+            //     }
+            //     return new MultiParameterList(exp.ToArray());
+            // }
             if (aExpression.Contains(','))
             {
                 string[] parts = aExpression.Split(',');

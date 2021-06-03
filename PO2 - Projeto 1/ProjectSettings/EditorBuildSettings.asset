@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Menu.unity
+    guid: b450a59959396dc45ab7bb820bc02f8f
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Aurea.unity
+    guid: db3f3db9adc1f6344a176268b8ef9a2b
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Bissecao.unity
+    guid: 0925daefbf9aaa243a155ea9a6cefbd9
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Dicotomica.unity
+    guid: 408a0cf6750cc5246bb592e6027e2f21
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Fibonacci.unity
+    guid: d6975e51f88cbf949b939262664ef777
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Newton.unity
+    guid: 468e998aa4b84f4488cbfa109854fa0c
+  - enabled: 1
+    path: Assets/_Scenes/Metodos/Uniforme.unity
+    guid: cd689b21c88e35549a3ad430303ec871
   m_configObjects: {}

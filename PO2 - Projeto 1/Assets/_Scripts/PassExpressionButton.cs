@@ -22,6 +22,10 @@ public class PassExpressionButton : MonoBehaviour
     {
         myExpression = myIF.text;
         Debug.Log(myExpression);
+
+        //f(x) = x+x^2+x^3
+        //a = 3 e b = 6, delta = 0.1, lambda = 0.2;
+        //f(3) = 3+3^2+3^3 = 
         
         var parser = new ExpressionParser();
         Expression exp = parser.EvaluateExpression(myExpression);
@@ -29,4 +33,6 @@ public class PassExpressionButton : MonoBehaviour
 
         resultado.text = exp.Value.ToString();
     }
+
+    //public static void  
 }
