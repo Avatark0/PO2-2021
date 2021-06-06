@@ -39,4 +39,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void Sair()
+    {
+        Debug.Log("Exit application.");
+        Application.Quit();
+    }
 }

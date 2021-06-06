@@ -34,8 +34,10 @@ public class Uniforme : MonoBehaviour
         b = Convert.ToDouble(bString);
         delta = Convert.ToDouble(deltaString);
 
-        Debug.Log("Resultado é = " + Algoritmo());
-        resultado.text = Algoritmo().ToString();
+        Debug.Log("a = "+a+", b = "+b+", delta = "+delta);
+
+        double res = Algoritmo();
+        resultado.text = Math.Round(res,4).ToString();
     }
 
     private double Algoritmo()
@@ -50,7 +52,7 @@ public class Uniforme : MonoBehaviour
             x0 = FdeX(funcao, a);
             x1 = FdeX(funcao, a+delta);
             
-            Debugando(x0, x1);
+            //DebugValores(x0, x1);
             
             if(x1 < x0)
             {
@@ -68,7 +70,7 @@ public class Uniforme : MonoBehaviour
             x0 = FdeX(funcao, a);
             x1 = FdeX(funcao, a+delta);
             
-            Debugando(x0, x1);
+            //DebugValores(x0, x1);
             
             if(x1 < x0)
             {
@@ -82,10 +84,11 @@ public class Uniforme : MonoBehaviour
 
     private double FdeX(string _funcao, double x)
     {
+        x = Math.Round(x,5);
         string val = funcao.Replace("x", FormatarNum(x));
         var parser = new ExpressionParser();
         Expression exp = parser.EvaluateExpression(val);
-        return Math.Round(exp.Value,4);
+        return Math.Round(exp.Value,5);
     }
 
     private string FormatarNum(double num)
@@ -101,7 +104,7 @@ public class Uniforme : MonoBehaviour
         return sNum;
     }
 
-    private void Debugando(double _x0, double _x1)
+    private void DebugValores(double _x0, double _x1)
     {
         Debug.Log("x ="+a+", f(x) = "+_x0+", xk = "+(a+delta)+", f(xk) = "+_x1);
     }

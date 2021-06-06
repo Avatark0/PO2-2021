@@ -41,8 +41,8 @@ public class Dicotomica : MonoBehaviour
 
         Debug.Log("a = "+a+", b = "+b+", delta = "+delta+", epslon = "+epslon);
 
-        Debug.Log("Resultado é = " + Algoritmo());
-        resultado.text = Math.Round(Algoritmo(),4).ToString();
+        double res = Algoritmo();
+        resultado.text = Math.Round(res,4).ToString();
     }
 
     private double Algoritmo()
@@ -64,7 +64,7 @@ public class Dicotomica : MonoBehaviour
                 b=z;
                 Debug.Log("f(x) <= f(z)");
             }
-            Debugando(x, z);
+            //DebugValores(x, z);
         }
 
         return (a+b)/2;
@@ -92,7 +92,7 @@ public class Dicotomica : MonoBehaviour
         return sNum;
     }
 
-    private void Debugando(double _x, double _z)
+    private void DebugValores(double _x, double _z)
     {
         Debug.Log("a = "+a+", b = "+b+", x = "+_x+", z = "+_z+", F(x) = "+FdeX(funcao,_x)+", F(z) = "+FdeX(funcao,_z));
     }

@@ -36,7 +36,8 @@ public class Fibonacci : MonoBehaviour
 
         Debug.Log("a = "+a+", b = "+b+", epslon = "+epslon);
 
-        resultado.text = Math.Round(Algoritmo(),4).ToString();
+        double res = Algoritmo();
+        resultado.text = Math.Round(res,4).ToString();
     }
 
     private double Algoritmo()
@@ -54,7 +55,7 @@ public class Fibonacci : MonoBehaviour
         
         for(i=1; true; i++)
         {
-            if(Convert.ToDouble(fib[i]) > fn)break;
+            if(Convert.ToDouble(fib[i]) > fn)break;//for loop não aceita comparação entre doubles (ou floats) como condição de parada
             fib[i+1] = fib[i] + fib[i-1];
         }
 
@@ -75,7 +76,7 @@ public class Fibonacci : MonoBehaviour
                 lamb = mi;
                 mi = a + (fib[i-k-2] / fib[i-k]) * (b-a);
             }
-            Debugando(mi,lamb);
+            //DebugValores(mi,lamb);
         }
 
         if(FdeX(funcao,mi) > FdeX(funcao,lamb))
@@ -108,7 +109,7 @@ public class Fibonacci : MonoBehaviour
         return sNum;
     }
 
-    private void Debugando(double _mi, double _lamb)
+    private void DebugValores(double _mi, double _lamb)
     {
         Debug.Log("a = "+a+", b = "+b+", mi = "+_mi+", lamb = "+_lamb+", F(mi) = "+FdeX(funcao,_mi)+", F(lamb) = "+FdeX(funcao,_lamb));
     }

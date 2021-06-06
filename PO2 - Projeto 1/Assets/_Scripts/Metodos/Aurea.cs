@@ -36,7 +36,8 @@ public class Aurea : MonoBehaviour
 
         Debug.Log("a = "+a+", b = "+b+", epslon = "+epslon);
 
-        resultado.text = Math.Round(Algoritmo(),4).ToString();
+        double res = Algoritmo();
+        resultado.text = Math.Round(res,4).ToString();
     }
 
     private double Algoritmo()
@@ -65,7 +66,7 @@ public class Aurea : MonoBehaviour
                 lamb = mi;
         	    mi = a + beta * (b-a);
             }
-            //Debugando(mi, lamb);
+            //DebugValores(mi, lamb);
         }
 
         return (a+b)/2;
@@ -93,7 +94,7 @@ public class Aurea : MonoBehaviour
         return sNum;
     }
 
-    private void Debugando(double _mi, double _lamb)
+    private void DebugValores(double _mi, double _lamb)
     {
         Debug.Log("a = "+a+", b = "+b+", mi = "+_mi+", lamb = "+_lamb+", F(mi) = "+FdeX(funcao,_mi)+", F(lamb) = "+FdeX(funcao,_lamb));
     }
