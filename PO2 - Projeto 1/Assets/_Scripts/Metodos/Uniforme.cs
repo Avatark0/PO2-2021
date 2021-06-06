@@ -47,8 +47,8 @@ public class Uniforme : MonoBehaviour
         //Aproximacao Inicial
         for(i=0; a+delta < b; i++)
         {
-            x0 = SubstituiAeRetornaVal(funcao, a);
-            x1 = SubstituiAeRetornaVal(funcao, a+delta);
+            x0 = FdeX(funcao, a);
+            x1 = FdeX(funcao, a+delta);
             
             Debugando(x0, x1);
             
@@ -65,8 +65,8 @@ public class Uniforme : MonoBehaviour
         
         for(i=0; a+delta < b; i++)
         {
-            x0 = SubstituiAeRetornaVal(funcao, a);
-            x1 = SubstituiAeRetornaVal(funcao, a+delta);
+            x0 = FdeX(funcao, a);
+            x1 = FdeX(funcao, a+delta);
             
             Debugando(x0, x1);
             
@@ -80,12 +80,12 @@ public class Uniforme : MonoBehaviour
         return a;
     }
 
-    private double SubstituiAeRetornaVal(string _funcao, double x)
+    private double FdeX(string _funcao, double x)
     {
         string val = funcao.Replace("x", FormatarNum(x));
         var parser = new ExpressionParser();
         Expression exp = parser.EvaluateExpression(val);
-        return exp.Value;
+        return Math.Round(exp.Value,4);
     }
 
     private string FormatarNum(double num)
@@ -103,11 +103,6 @@ public class Uniforme : MonoBehaviour
 
     private void Debugando(double _x0, double _x1)
     {
-        Debug.Log("a = x ="+a);
-        Debug.Log("x0 = f(x) = "+_x0);
-        Debug.Log("a+delta = xk = "+(a+delta));
-        Debug.Log("x1 = f(xk) = "+_x1);
-        Debug.Log("delta = "+delta);
-        Debug.Log("b = "+b);
+        Debug.Log("x ="+a+", f(x) = "+_x0+", xk = "+(a+delta)+", f(xk) = "+_x1);
     }
 }

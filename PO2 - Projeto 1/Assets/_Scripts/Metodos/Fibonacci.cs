@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using B83.ExpressionParser;
 
-public class Dicotomica : MonoBehaviour
+public class Fibonacci : MonoBehaviour
 {
     [SerializeField] private InputField inputFuncao = default;
     [SerializeField] private InputField inputA = default;
     [SerializeField] private InputField inputB = default;
-    [SerializeField] private InputField inputDelta = default;
     [SerializeField] private InputField inputEpslon = default;
 
     [SerializeField] private Text resultado = default;
@@ -18,12 +17,10 @@ public class Dicotomica : MonoBehaviour
     private string funcao;
     private string aString;
     private string bString;
-    private string deltaString;
     private string epslonString;
 
     private double a;
     private double b;
-    private double delta;
     private double epslon;
     
     public void Calcular()
@@ -31,48 +28,67 @@ public class Dicotomica : MonoBehaviour
         funcao = inputFuncao.text;
         aString = inputA.text;
         bString = inputB.text;
-        deltaString = inputDelta.text;
         epslonString = inputEpslon.text;
 
         a = Convert.ToDouble(aString);
         b = Convert.ToDouble(bString);
-        delta = Convert.ToDouble(deltaString);
         epslon = Convert.ToDouble(epslonString);
 
-        Debug.Log("a = "+a+", b = "+b+", delta = "+delta+", epslon = "+epslon);
+        Debug.Log("a = "+a+", b = "+b+", epslon = "+epslon);
 
-        Debug.Log("Resultado é = " + Algoritmo());
         resultado.text = Math.Round(Algoritmo(),4).ToString();
     }
 
     private double Algoritmo()
     {
-        double x;
-        double z;
+        double mi;
+        double lamb;
+        
+        float fn;
+        float[] fib = new float[20];
+        int i;
 
-        for(int i=0; (b-a) >= epslon; i++)
+        fn = (float)((b - a)/epslon);
+        fib[0] = 1;
+        fib[1] = 1;
+        
+        for(i=1; true; i++)
         {
-            x=((a+b)/2)-delta;
-            z=((a+b)/2)+delta;
-            if(FdeX(funcao,x) > FdeX(funcao,z))
+            if(Convert.ToDouble(fib[i]) > fn)break;
+            fib[i+1] = fib[i] + fib[i-1];
+        }
+
+        mi = a + (fib[i-2] / fib[i]) * (b-a);
+        lamb = a + (fib[i-1] / fib[i]) * (b-a);
+
+        for(int k=1; k <= i-2; k++)
+        {
+            if(FdeX(funcao,mi) > FdeX(funcao,lamb))
             {
-                a=x;
-                Debug.Log("f(x) > f(z)");
+                a = mi;
+                mi = lamb;
+                lamb = a + (fib[i-k-1] / fib[i-k]) * (b-a);
             }
             else
             {
-                b=z;
-                Debug.Log("f(x) <= f(z)");
+                b = lamb;
+                lamb = mi;
+                mi = a + (fib[i-k-2] / fib[i-k]) * (b-a);
             }
-            Debugando(x, z);
+            Debugando(mi,lamb);
         }
+
+        if(FdeX(funcao,mi) > FdeX(funcao,lamb))
+            a = mi;
+        else
+            b = lamb;
 
         return (a+b)/2;
     }
 
     private double FdeX(string _funcao, double x)
     {
-        Math.Round(x,5);
+        x = Math.Round(x,5);
         string val = funcao.Replace("x", FormatarNum(x));
         var parser = new ExpressionParser();
         Expression exp = parser.EvaluateExpression(val);
@@ -92,8 +108,8 @@ public class Dicotomica : MonoBehaviour
         return sNum;
     }
 
-    private void Debugando(double _x, double _z)
+    private void Debugando(double _mi, double _lamb)
     {
-        Debug.Log("a = "+a+", b = "+b+", x = "+_x+", z = "+_z+", F(x) = "+FdeX(funcao,_x)+", F(z) = "+FdeX(funcao,_z));
+        Debug.Log("a = "+a+", b = "+b+", mi = "+_mi+", lamb = "+_lamb+", F(mi) = "+FdeX(funcao,_mi)+", F(lamb) = "+FdeX(funcao,_lamb));
     }
 }
