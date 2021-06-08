@@ -46,7 +46,7 @@ public class Fibonacci : MonoBehaviour
         double lamb;
         
         float fn;
-        float[] fib = new float[20];
+        float[] fib = new float[50];
         int i;
 
         fn = (float)((b - a)/epslon);
