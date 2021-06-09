@@ -1484,7 +1484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\"Marcia, voc\xEA \xE9 fod*!\""
+  m_Text: "\"Marcia, voc\xEA \xE9 d+!!!\""
 --- !u!222 &787119947
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2489,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.7161865}
+  m_AnchoredPosition: {x: 0, y: 6.7163086}
   m_SizeDelta: {x: -510.4229, y: -329.0884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164469229
@@ -3236,7 +3236,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Para desfrutar dos m\xE9todos de avalia\xE7\xE3o de fun\xE7\xF5es apresentados
-    neste programa deve-se atentar \xE0 forma de escrever as equa\xE7\xF5es e valores
+    neste programa, deve-se atentar \xE0 forma de escrever as equa\xE7\xF5es e valores
     nas caixas de texto, conforme descrito a seguir:"
 --- !u!222 &1434646368
 CanvasRenderer:
@@ -3519,7 +3519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.7161865}
+  m_AnchoredPosition: {x: 0, y: 6.7163086}
   m_SizeDelta: {x: -510.4229, y: -329.0884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781794636
