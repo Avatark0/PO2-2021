@@ -37,7 +37,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("_Menu");
     }
 
     public void Sair()

@@ -1,46 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using B83.ExpressionParser;
 
-public class Aurea : MonoBehaviour
+public class Aurea : _MetodoAbstrato
 {
-    [SerializeField] private InputField inputFuncao = default;
-    [SerializeField] private InputField inputA = default;
-    [SerializeField] private InputField inputB = default;
-    [SerializeField] private InputField inputEpslon = default;
-
-    [SerializeField] private Text resultado = default;
-
-    private string funcao;
-    private string aString;
-    private string bString;
-    private string epslonString;
-
-    private double a;
-    private double b;
-    private double epslon;
-    
-    public void Calcular()
-    {
-        funcao = inputFuncao.text;
-        aString = inputA.text;
-        bString = inputB.text;
-        epslonString = inputEpslon.text;
-
-        a = Convert.ToDouble(aString);
-        b = Convert.ToDouble(bString);
-        epslon = Convert.ToDouble(epslonString);
-
-        Debug.Log("a = "+a+", b = "+b+", epslon = "+epslon);
-
-        double res = Algoritmo();
-        resultado.text = Math.Round(res,4).ToString();
-    }
-
-    private double Algoritmo()
+    protected override double Algoritmo()
     {
         double alfa;
         double beta;
@@ -54,7 +18,7 @@ public class Aurea : MonoBehaviour
 
         for(int i=0; (b-a) > epslon; i++)
         {
-            if(FdeX(funcao,mi) > FdeX(funcao,lamb))
+            if(FdeX.Calc(funcao,mi) > FdeX.Calc(funcao,lamb))
             {
                 a = mi;
                 mi = lamb;
@@ -72,30 +36,8 @@ public class Aurea : MonoBehaviour
         return (a+b)/2;
     }
 
-    private double FdeX(string _funcao, double x)
-    {
-        x = Math.Round(x,5);
-        string val = funcao.Replace("x", FormatarNum(x));
-        var parser = new ExpressionParser();
-        Expression exp = parser.EvaluateExpression(val);
-        return Math.Round(exp.Value,5);
-    }
-
-    private string FormatarNum(double num)
-    {
-        string sNum = num.ToString();
-        if(sNum.Contains(","))
-        {
-            string[] frac = sNum.Split(',');
-            double dec = frac[1].Length;
-            sNum = frac[0] + frac[1] + "/" + (Math.Pow(10,dec)).ToString();
-        }
-        sNum = "(" + sNum + ")";
-        return sNum;
-    }
-
     private void DebugValores(double _mi, double _lamb)
     {
-        Debug.Log("a = "+a+", b = "+b+", mi = "+_mi+", lamb = "+_lamb+", F(mi) = "+FdeX(funcao,_mi)+", F(lamb) = "+FdeX(funcao,_lamb));
+        Debug.Log("a = "+a+", b = "+b+", mi = "+_mi+", lamb = "+_lamb+", F(mi) = "+FdeX.Calc(funcao,_mi)+", F(lamb) = "+FdeX.Calc(funcao,_lamb));
     }
 }
