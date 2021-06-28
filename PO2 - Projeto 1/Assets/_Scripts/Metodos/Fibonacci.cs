@@ -16,6 +16,8 @@ public class Fibonacci : _MetodoAbstrato
         fn = (float)((b - a)/epslon);
         fib[0] = 1;
         fib[1] = 1;
+
+        Debug.Log("a = "+a+", b = "+b+", fn = "+fn);
         
         for(i=1; true; i++)
         {
@@ -25,6 +27,11 @@ public class Fibonacci : _MetodoAbstrato
 
         mi = a + (fib[i-2] / fib[i]) * (b-a);
         lamb = a + (fib[i-1] / fib[i]) * (b-a);
+
+        Debug.Log("i = "+i);
+
+        Debug.Log("k = "+1);
+        DebugValores(mi,lamb);
 
         for(int k=1; k <= i-2; k++)
         {
@@ -40,13 +47,13 @@ public class Fibonacci : _MetodoAbstrato
                 lamb = mi;
                 mi = a + (fib[i-k-2] / fib[i-k]) * (b-a);
             }
-            //DebugValores(mi,lamb);
+
+            Debug.Log("k = "+(k+1));
+            DebugValores(mi,lamb);
         }
 
-        if(FdeX.Calc(funcao,mi) > FdeX.Calc(funcao,lamb))
-            a = mi;
-        else
-            b = lamb;
+        Debug.Log("resultado:");
+        DebugValores(mi,lamb);
 
         return (a+b)/2;
     }

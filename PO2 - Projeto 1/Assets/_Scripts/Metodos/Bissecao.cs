@@ -15,12 +15,14 @@ public class Bissecao : _MetodoAbstrato
         bi = b;
         xi = (ai+bi)/2;
 
+        DebugValores(ai, bi, 0, 0);
+
         for(int i=0; true; i++)
         {
             if((bi - ai) < epslon)break;
 
             dx = Derivadas.Dx(funcao, xi);
-            
+
             if(dx == 0) return xi;
             else if(dx > 0)
             {
@@ -33,7 +35,7 @@ public class Bissecao : _MetodoAbstrato
                 xi = (ai+bi)/2;
             }
 
-            //DebugValores(ai, bi, xi, dx);
+            DebugValores(ai, bi, xi, dx);
         }
 
         return xi;

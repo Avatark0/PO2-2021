@@ -16,6 +16,8 @@ public class Aurea : _MetodoAbstrato
         mi = a + beta * (b-a);
         lamb = a + alfa * (b-a);
 
+        DebugValores(mi, lamb);
+        
         for(int i=0; (b-a) > epslon; i++)
         {
             if(FdeX.Calc(funcao,mi) > FdeX.Calc(funcao,lamb))
@@ -30,7 +32,7 @@ public class Aurea : _MetodoAbstrato
                 lamb = mi;
         	    mi = a + beta * (b-a);
             }
-            //DebugValores(mi, lamb);
+            DebugValores(mi, lamb);
         }
 
         return (a+b)/2;

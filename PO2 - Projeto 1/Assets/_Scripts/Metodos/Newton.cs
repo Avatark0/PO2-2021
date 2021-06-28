@@ -21,7 +21,7 @@ public class Newton : _MetodoAbstrato
             xi = x;
             x = xi - dx/ddx;
 
-            //DebugValores(xi, x, dx, ddx);
+            DebugValores(xi, x, dx, ddx);
 
             if(Math.Abs(dx) < epslon ) break;
             if((Math.Abs(x - xi) / Math.Max(x, 1)) < epslon) break;
