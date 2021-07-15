@@ -42,7 +42,6 @@ public class InputValues
     public static double GetDelta(){return delta;}
     public static double GetEpslon(){return epslon;}
 
-
     public static void SetFuncao(string _funcao){funcao = _funcao;}
     
     public static void SetA(string _aString){
