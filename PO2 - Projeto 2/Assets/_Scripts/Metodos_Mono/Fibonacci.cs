@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Fibonacci : _MetodoAbstrato
+public class Fibonacci : _MetodoMonoVar
 {
     protected override double Algoritmo()
     {

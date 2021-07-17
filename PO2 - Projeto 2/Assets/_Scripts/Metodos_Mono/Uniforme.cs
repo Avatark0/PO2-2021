@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Uniforme : _MetodoAbstrato
+public class Uniforme : _MetodoMonoVar
 {
     protected override double Algoritmo()
     {

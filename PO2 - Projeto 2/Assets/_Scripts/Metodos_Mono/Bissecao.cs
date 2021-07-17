@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bissecao : _MetodoAbstrato
+public class Bissecao : _MetodoMonoVar
 {
     protected override double Algoritmo()
     {

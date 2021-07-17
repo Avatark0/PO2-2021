@@ -2,16 +2,20 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Newton : _MetodoMonoVar
+public class NewtonAuxiliar
 {
-    protected override double Algoritmo()
+    private static string funcao;
+    private static double epslon = 0.001;
+    private static double startingPoint = -100;
+    
+    private static double Algoritmo()
     {
         double x;
         double xi;
         double dx;
         double ddx;
 
-        x = a;
+        x = startingPoint;
 
         for(int i=0; i<100; i++)
         {
@@ -21,7 +25,7 @@ public class Newton : _MetodoMonoVar
             xi = x;
             x = xi - dx/ddx;
 
-            DebugValores(xi, x, dx, ddx);
+            //DebugValores(xi, x, dx, ddx);
 
             if(Math.Abs(dx) < epslon ) break;
             if((Math.Abs(x - xi) / Math.Max(x, 1)) < epslon) break;
@@ -33,5 +37,22 @@ public class Newton : _MetodoMonoVar
     private void DebugValores(double xi, double x, double dx, double ddx)
     {
         Debug.Log("xi = "+xi+", x = "+x+", dx = "+dx+", ddx = "+ddx);
+    }
+
+    public static double CalcularLambda(string _funcao)
+    {
+        funcao = _funcao;
+
+        Debug.Log("Funcao = "+funcao+", epslon = "+epslon);
+
+        double res = 0;
+
+        try{
+            res = Algoritmo();
+        }catch{
+            Debug.Log("Erro no cálculo da função!");
+        }
+
+        return Math.Round(res,4);
     }
 }

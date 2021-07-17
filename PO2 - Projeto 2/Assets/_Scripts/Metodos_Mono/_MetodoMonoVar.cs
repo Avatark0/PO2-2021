@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class _MetodoAbstrato : MonoBehaviour
+public abstract class _MetodoMonoVar : MonoBehaviour
 {
     [SerializeField] protected GameObject InputController = default;
     [SerializeField] protected Text resultado = default;
@@ -18,14 +18,14 @@ public abstract class _MetodoAbstrato : MonoBehaviour
     protected void Start(){
         if(InputValues.AreInputsSet())
         {
-            InputController.GetComponent<InputController>().SetTextFields();
+            InputController.GetComponent<ControllerValues>().SetTextFields();
             GetInputValues();
         }
     }
 
     protected void GetInputValues()
     {
-        InputController.GetComponent<InputController>().SetInputs();    
+        InputController.GetComponent<ControllerValues>().SetInputs();    
 
         funcao = InputValues.GetFuncao();
         a = InputValues.GetA();

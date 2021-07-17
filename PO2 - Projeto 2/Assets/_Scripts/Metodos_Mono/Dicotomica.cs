@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dicotomica : _MetodoAbstrato
+public class Dicotomica : _MetodoMonoVar
 {
     protected override double Algoritmo()
     {

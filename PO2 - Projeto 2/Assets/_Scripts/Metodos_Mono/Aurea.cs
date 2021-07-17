@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Aurea : _MetodoAbstrato
+public class Aurea : _MetodoMonoVar
 {
     protected override double Algoritmo()
     {

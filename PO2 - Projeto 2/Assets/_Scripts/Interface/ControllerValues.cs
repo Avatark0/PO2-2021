@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class InputController : MonoBehaviour
+public class ControllerValues : MonoBehaviour
 {
     [SerializeField] private InputField inputFuncao = default;
     [SerializeField] private InputField inputA = default;
@@ -16,17 +16,17 @@ public class InputController : MonoBehaviour
         try{
             InputValues.SetFuncao(inputFuncao.text);
         }catch{
-            Debug.Log("InputController: Erro no input da funcao!");
+            Debug.Log("ControllerValues: Erro no input da funcao!");
         }
         try{
             InputValues.SetA(inputA.text);
         }catch{
-            Debug.Log("InputController: Erro no input de A!");
+            Debug.Log("ControllerValues: Erro no input de A!");
         }
         try{
             InputValues.SetB(inputB.text);
         }catch{
-            Debug.Log("InputController: Erro no input de B!");
+            Debug.Log("ControllerValues: Erro no input de B!");
         }
 
         if(inputDelta!=null)
@@ -34,7 +34,7 @@ public class InputController : MonoBehaviour
             try{
                 InputValues.SetDelta(inputDelta.text);
             }catch{
-                Debug.Log("InputController: Erro no input de Delta!");
+                Debug.Log("ControllerValues: Erro no input de Delta!");
             }
         }
 
@@ -43,7 +43,7 @@ public class InputController : MonoBehaviour
             try{
                 InputValues.SetEpslon(inputEpslon.text);
             }catch{
-                Debug.Log("InputController: Erro no input de Epslon!");
+                Debug.Log("ControllerValues: Erro no input de Epslon!");
             }
         }
 
