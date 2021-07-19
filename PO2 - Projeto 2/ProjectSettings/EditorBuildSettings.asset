@@ -9,21 +9,39 @@ EditorBuildSettings:
     path: Assets/_Scenes/_Menu.unity
     guid: b450a59959396dc45ab7bb820bc02f8f
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Aurea.unity
+    path: Assets/_Scenes/MetodosMonoVar/Aurea.unity
     guid: db3f3db9adc1f6344a176268b8ef9a2b
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Bissecao.unity
+    path: Assets/_Scenes/MetodosMonoVar/Bissecao.unity
     guid: 0925daefbf9aaa243a155ea9a6cefbd9
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Dicotomica.unity
+    path: Assets/_Scenes/MetodosMonoVar/Dicotomica.unity
     guid: 408a0cf6750cc5246bb592e6027e2f21
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Fibonacci.unity
+    path: Assets/_Scenes/MetodosMonoVar/Fibonacci.unity
     guid: d6975e51f88cbf949b939262664ef777
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Newton.unity
+    path: Assets/_Scenes/MetodosMonoVar/Newton.unity
     guid: 468e998aa4b84f4488cbfa109854fa0c
   - enabled: 1
-    path: Assets/_Scenes/Metodos1/Uniforme.unity
+    path: Assets/_Scenes/MetodosMonoVar/Uniforme.unity
     guid: cd689b21c88e35549a3ad430303ec871
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/HookeJeeves.unity
+    guid: 80f9295ee8af69b46975d4ca686cb79b
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/Ciclica.unity
+    guid: 49ea2fadbd3f9194d82ae0b1d0f8e522
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/Gradiente.unity
+    guid: 018245887ef99b64593b6930b02e637e
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/FletcherReeves.unity
+    guid: 262d15aa675a6af41b2b909b93c85214
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/NewtonMulti.unity
+    guid: 9509e1829916a494f89a48c4f591836e
+  - enabled: 1
+    path: Assets/_Scenes/MetodosMultiVar/DavidonFletcherPowell.unity
+    guid: c7b56234dbddacb4d86ee0135b47a390
   m_configObjects: {}

@@ -3,6 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("_Menu");
+    }
+
+    public void Sair()
+    {
+        Debug.Log("Exit application.");
+        Application.Quit();
+    }
+
+    //Metodos Monovariáveis
     public void LoadUniforme()
     {
         SceneManager.LoadScene("Uniforme");
@@ -33,14 +45,29 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Newton");
     }
 
-    public void LoadMenu()
+    //Metodos Multivariáveis
+    public void LoadHookeJeeves()
     {
-        SceneManager.LoadScene("_Menu");
+        SceneManager.LoadScene("HookeJeeves");
     }
 
-    public void Sair()
+    public void LoadGradiente()
     {
-        Debug.Log("Exit application.");
-        Application.Quit();
+        SceneManager.LoadScene("Gradiente");
+    }
+
+    public void LoadFletcherReeves()
+    {
+        SceneManager.LoadScene("FletcherReeves");
+    }
+
+    public void LoadNewtonMulti()
+    {
+        SceneManager.LoadScene("NewtonMulti");
+    }
+
+    public void LoadDavidonFletcherPowell()
+    {
+        SceneManager.LoadScene("DavidonFletcherPowell");
     }
 }

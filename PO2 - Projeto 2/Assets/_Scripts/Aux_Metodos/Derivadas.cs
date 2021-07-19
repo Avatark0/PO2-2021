@@ -6,6 +6,8 @@ public class Derivadas
 {
     public static double Dx(string funcao, double x)
     {
+        //Debug.Log("Dx: funcao = "+funcao);
+        
         double h = 0.0001 * x;
         double xUp = x + h;
         double xDw = x - h;
@@ -20,6 +22,8 @@ public class Derivadas
 
     public static double Ddx(string funcao, double x)
     {
+        //Debug.Log("Ddx: funcao = "+funcao);
+
         double h = 0.01 * x;
         double xh = x + h;
         double x2h = x + 2*h;
