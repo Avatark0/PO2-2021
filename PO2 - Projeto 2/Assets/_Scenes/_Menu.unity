@@ -402,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -68.638}
-  m_SizeDelta: {x: 1409.6, y: 357.69}
+  m_AnchoredPosition: {x: 0.0001, y: -75.14743}
+  m_SizeDelta: {x: 1379.2225, y: 344.6711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129789307
 MonoBehaviour:
@@ -438,8 +438,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "     - Utilizar os simbolos: +, -, *, /, ^, () para as opera\xE7\xF5es
-    b\xE1sicas;\n     "
+  m_Text: "     - Para os m\xE9todos multivari\xE1veis deve-se primeiro selecionar
+    o n\xFAmero de vari\xE1veis desejado, com limite de at\xE9 5 vari\xE1veis;\n    
+    - Na sequ\xEAncia, deve-se selecionar uma letra para representar cada vari\xE1vel,
+    notando que a letra 'l' (L min\xFAsculo) n\xE3o deve ser usada, pois j\xE1 \xE9
+    reservada para l\xE2mbda;\n     - Ent\xE3o, deve-se escrever a fun\xE7\xE3o conforme
+    as instru\xE7\xF5es j\xE1 apresentadas na p\xE1gina anterior;\n     - Por fim,
+    basta definir o valor de epslon (sempre usando ',' (v\xEDrgula) para marcar os
+    decimais);\n     - Agora \xE9 s\xF3 clicar em Calcular e o resultado ser\xE1
+    apresentado!\n     "
 --- !u!222 &129789308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4127,8 +4134,8 @@ MonoBehaviour:
   PainelTextoPg1: {fileID: 1781794634}
   PainelTextoPg2: {fileID: 434616478}
   btEntendido: {fileID: 536897950}
-  btProxima: {fileID: 806543444}
   btAnterior: {fileID: 1833692607}
+  btProxima: {fileID: 806543444}
 --- !u!4 &1396081319
 Transform:
   m_ObjectHideFlags: 0

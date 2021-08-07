@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/MetodosMultiVar/HookeJeeves.unity
     guid: 80f9295ee8af69b46975d4ca686cb79b
   - enabled: 1
-    path: Assets/_Scenes/MetodosMultiVar/Ciclica.unity
-    guid: 49ea2fadbd3f9194d82ae0b1d0f8e522
-  - enabled: 1
     path: Assets/_Scenes/MetodosMultiVar/Gradiente.unity
     guid: 018245887ef99b64593b6930b02e637e
   - enabled: 1
