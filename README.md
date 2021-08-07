@@ -8,3 +8,6 @@ Rafael Nunes Caseiro RA 181024683
 
 Projeto 1 - 20/06/2021
 Desenvolvido em Unity e C#
+
+Projeto 2 - 08/08/2021
+Desenvolvido em Unity e C#
