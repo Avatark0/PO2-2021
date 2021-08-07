@@ -1,80 +1,88 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace multiVar{
     public class HookeJeeves : _MetodoMultVar
     {
-        protected override Vector2 Algoritmo()
+        protected override double[] Algoritmo()
         {
-            int k=1, j=1, n=2;
+            int k=1, j=0, n=varNum;
             double lambda;
-            Vector2 y2 = new Vector2((float)x1Ini, (float)x2Ini);
-            Vector2 y1 = y2;
 
-            Vector2 resultado;
+            double[] y2 = new double[n];
+            for(int i=0; i<n; i++){
+                y2[i]=xIni[i];
+            }
+
+            double[] y1 = y2;
+            double[] resultado = new double[n];
 
             for(k=1;k<10;k++){
-                //Busca Exploratória (CC)
-                for(j=1; j<=n; j++){
+                //Busca Exploratória (CC):
+                for(j=0; j<n; j++){
                     y1=y2;
 
-                    if(j==1){
-                        //construir funcao (string) de lambda
-                        string y = "(" + y1.x.ToString() + " + x)";
-                        string fDeY = FdeXY.SubstituiVars(funcao, x1, y);                
+                    //construir funcao (string) de lambda (lambda é representado por l na string)
+                    string aux;
+                    string fDeY = "";
 
-                        y = "(" + y1.y.ToString() + ")";
-                        fDeY = FdeXY.SubstituiVars(fDeY, x2, y);
-
-                        //utilizar um metodo monovariavel para minimizar lambda
-                        Debug.Log("HookeJeeves: funcao j1 = "+fDeY);
-                        lambda = NewtonAuxiliar.CalcularLambda(fDeY);
-                        
-                        y2 = new Vector2(y1.x + (float)lambda, y1.y);
+                    for(int i=0; i<n; i++){
+                        if(i==j){
+                            aux = "(" + y1[i].ToString() + " + l)";
+                            fDeY = FdeXY.SubstituiVars(funcao, vars[i], aux);
+                        }
                     }
-                    else if(j==2){
-                        //construir funcao (string) de lambda
-                        string y = "(" + y1.x.ToString() + ")";
-                        string fDeY = FdeXY.SubstituiVars(funcao, x1, y);                
 
-                        y =  "(" + y1.y.ToString() + " + x)";
-                        fDeY = FdeXY.SubstituiVars(fDeY, x2, y);
+                    for(int i=0; i<n; i++){
+                        if(i!=j){
+                            aux = "(" + y1[i].ToString() + ")";
+                            fDeY = FdeXY.SubstituiVars(fDeY, vars[i], aux);
+                        } 
+                    }
 
-                        //utilizar um metodo monovariavel para minimizar lambda
-                        Debug.Log("HookeJeeves: funcao j2 = "+fDeY);
-                        lambda = NewtonAuxiliar.CalcularLambda(fDeY);
-
-                        y2 = new Vector2(y1.x, y1.y + (float)lambda);
+                    //utilizar um metodo monovariavel para minimizar lambda (xj inicial utilizado como ponto inicial de Newton)
+                    lambda = NewtonAuxiliar.CalcularLambda(fDeY, y1[j]);
+                    
+                    for(int i=0; i<n; i++){
+                        y2[i] = y1[i];
+                        if(i==j) y2[i] += lambda;
                     }
                 }
 
-                //Condicao de Parada
-                double cp = Math.Sqrt(Math.Pow(y2.x-y1.x,2) + Math.Pow(y2.y-y1.y,2));
-                if(cp < epslon) break;
+                //Condicao de Parada:
+                double cp=0;
+                for(int i=0; i<varNum; i++){
+                    cp += Math.Pow(y2[i]-y1[i],2);
+                } 
+                cp = Math.Sqrt(cp);
+                if(cp < epslon){
+                    break;
+                } 
 
-                //Busca Conjugada
-                Vector2 dir = new Vector2(y2.x-y1.x, y2.y-y1.y);
+                //Busca Conjugada:
+                double[] dir = new double[varNum];
+                for(int i=0; i<varNum; i++){
+                    dir[i]=y2[i]-y1[i];
+                }
 
                 //construir funcao (string) de lambda
-                string yConj = "(" + y2.x.ToString() + " + x * " + dir.x.ToString() + ")";
-                string fDeYConj = FdeXY.SubstituiVars(funcao, "x", yConj);       
+                string yConj;
+                string fDeYConj = "";
 
-                yConj = "(" + y1.y.ToString() + " + x * " + dir.x.ToString() + ")";
-                fDeYConj = FdeXY.SubstituiVars(fDeYConj, "x", yConj);
+                for(int i=0; i<varNum; i++){
+                    yConj = "((" + y2[i].ToString() + ") + (l * " + dir[i].ToString() + "))";
+                    fDeYConj = FdeXY.SubstituiVars(funcao, vars[i], yConj);
+                }
 
                 //utilizar um metodo monovariavel para minimizar lambda
-                Debug.Log("HookeJeeves: funcao conj = "+fDeYConj);
-                lambda = NewtonAuxiliar.CalcularLambda(fDeYConj);
+                lambda = NewtonAuxiliar.CalcularLambda(fDeYConj, y2[0]);
 
-                y2.x = y2.x + (float)lambda * dir.x;
-                y2.y = y2.y + (float)lambda * dir.y;
-
-                //Metodo de parada? 
+                for(int i=0; i<varNum; i++){
+                    y2[i] += lambda*dir[i];
+                }
             }
 
-            resultado = new Vector2(y2.x, y2.y);
+            resultado = y2;
             
             return resultado;
         }

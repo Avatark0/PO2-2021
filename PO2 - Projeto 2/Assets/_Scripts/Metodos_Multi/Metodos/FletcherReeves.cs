@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace multiVar{
-    public class FletcherReeves : MonoBehaviour
+    public class FletcherReeves : _MetodoMultVar
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override double[] Algoritmo()
         {
-            
-        }
+            double[] res = new double[varNum];
 
-        // Update is called once per frame
-        void Update()
-        {
-            
+            return res;
         }
     }
 }

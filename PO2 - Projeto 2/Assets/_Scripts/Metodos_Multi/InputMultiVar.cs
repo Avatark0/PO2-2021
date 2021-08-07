@@ -7,11 +7,11 @@ public class InputMultiVar
 
     private static int varNum;
 
-    private static string varX1;
-    private static string varX2;
-    private static string varX3;
-    private static string varX4;
-    private static string varX5;
+    private static string var1;
+    private static string var2;
+    private static string var3;
+    private static string var4;
+    private static string var5;
 
     private static string funcao;
 
@@ -36,11 +36,11 @@ public class InputMultiVar
         varNumString = "";
         varNum=2;
 
-        varX1 = "";
-        varX2 = "";
-        varX3 = "";
-        varX4 = "";
-        varX5 = "";
+        var1 = "";
+        var2 = "";
+        var3 = "";
+        var4 = "";
+        var5 = "";
 
         funcao= "";
 
@@ -70,11 +70,11 @@ public class InputMultiVar
     {
         string var;
         switch(varIndex){
-            case 1: var = varX1; break;
-            case 2: var = varX2; break;
-            case 3: var = varX3; break;
-            case 4: var = varX4; break;
-            case 5: var = varX5; break;
+            case 1: var = var1; break;
+            case 2: var = var2; break;
+            case 3: var = var3; break;
+            case 4: var = var4; break;
+            case 5: var = var5; break;
             default: var = ""; break;
         }
         return var;
@@ -125,11 +125,11 @@ public class InputMultiVar
 
     public static void SetVar(int varIndex, string var){
         switch(varIndex){
-            case 1: varX1 = var; break;
-            case 2: varX2 = var; break;
-            case 3: varX3 = var; break;
-            case 4: varX4 = var; break;
-            case 5: varX5 = var; break;
+            case 1: var1 = var; break;
+            case 2: var2 = var; break;
+            case 3: var3 = var; break;
+            case 4: var4 = var; break;
+            case 5: var5 = var; break;
         }
     }
 

@@ -19,6 +19,19 @@ public class FdeX
     {
         x = Math.Round(x,10);
         string val = funcao.Replace("x", FormatarNum.DecToString(x));
+
+        //Debug.Log("FdeX: funcao = "+val);
+        var parser = new ExpressionParser();
+        Expression exp = parser.EvaluateExpression(val);
+        return Math.Round(exp.Value,10);
+    }
+
+    public static double PreciseLambda(string funcao, double x)
+    {
+        x = Math.Round(x,10);
+        string val = funcao.Replace("l", FormatarNum.DecToString(x));
+
+        //Debug.Log("FdeX: funcao = "+val);
         var parser = new ExpressionParser();
         Expression exp = parser.EvaluateExpression(val);
         return Math.Round(exp.Value,10);

@@ -8,6 +8,7 @@ public class FormatarNum
     public static string DecToString(double num)
     {
         string sNum = num.ToString();
+        if(sNum.Contains("."))Debug.Log("FORMATAR NUM CONTEM '.'!!! string do numero = "+sNum);
         if(sNum.Contains(","))
         {
             string[] frac = sNum.Split(',');

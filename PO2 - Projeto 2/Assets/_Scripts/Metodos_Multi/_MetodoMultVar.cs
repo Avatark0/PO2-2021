@@ -9,29 +9,15 @@ public abstract class _MetodoMultVar : MonoBehaviour
 
     protected int varNum;
 
-    protected string x1;
-    protected string x2;
-    protected string x3;
-    protected string x4;
-    protected string x5;
+    protected string[] vars = new string[5]{"","","","",""};
     
     protected string funcao;
     
-    protected double x1Ini;
-    protected double x2Ini;
-    protected double x3Ini;
-    protected double x4Ini;
-    protected double x5Ini;
+    protected double[] xIni = new double[5]{0,0,0,0,0};
 
     protected double epslon;
-
-    protected double x1otimo;
-    protected double x2otimo;
-    protected double x3otimo;
-    protected double x4otimo;
-    protected double x5otimo;
     
-    protected abstract Vector2 Algoritmo();
+    protected abstract double[] Algoritmo();
 
     protected void Start(){
         if(InputMultiVar.AreInputsSet())
@@ -46,29 +32,15 @@ public abstract class _MetodoMultVar : MonoBehaviour
         controllerMultiVar.GetComponent<ControllerMultiVar>().SetInputs();    
 
         varNum = InputMultiVar.GetVarNum();
-        if(varNum >= 1)
-            x1 = InputMultiVar.GetVar(1);
-        if(varNum >= 2)
-            x2 = InputMultiVar.GetVar(2);
-        if(varNum >= 3)
-            x3 = InputMultiVar.GetVar(3);
-        if(varNum >= 4)
-            x4 = InputMultiVar.GetVar(4);
-        if(varNum >= 5)
-            x5 = InputMultiVar.GetVar(5);
+        for(int i=0; i<varNum; i++){
+            vars[i]=InputMultiVar.GetVar(i+1);
+        }
 
         funcao = InputMultiVar.GetFuncao();
         
-        if(varNum >= 1)
-            x1Ini = InputMultiVar.GetValInicial(1);
-        if(varNum >= 2)
-            x2Ini = InputMultiVar.GetValInicial(2);
-        if(varNum >= 3)
-            x3Ini = InputMultiVar.GetValInicial(3);
-        if(varNum >= 4)
-            x4Ini = InputMultiVar.GetValInicial(4);
-        if(varNum >= 5)
-            x5Ini = InputMultiVar.GetValInicial(5);
+        for(int i=0; i<varNum; i++){
+            xIni[i]=InputMultiVar.GetValInicial(i+1);
+        }
 
         epslon = InputMultiVar.GetEpslon();
     }
@@ -77,12 +49,12 @@ public abstract class _MetodoMultVar : MonoBehaviour
     {
         GetInputValues();
 
-        Debug.Log("VarNum = "+varNum+", x1 = "+x1+", x2 = "+x2+", x3 = "+x3+", x4 = "+x4+", x5 = "+x5);
+        Debug.Log("VarNum = "+varNum+", var1 = "+vars[0]+", var2 = "+vars[1]+", var3 = "+vars[2]+", var4 = "+vars[3]+", var5 = "+vars[4]);
         Debug.Log("funcao = "+funcao);
-        Debug.Log("x1Ini = "+x1Ini+", x2Ini = "+x2Ini+", x3Ini = "+x3Ini+", x4Ini = "+x4Ini+", x5Ini = "+x5Ini);
+        Debug.Log("x1Ini = "+xIni[0]+", x2Ini = "+xIni[1]+", x3Ini = "+xIni[2]+", x4Ini = "+xIni[3]+", x5Ini = "+xIni[4]);
         Debug.Log("epslon = "+epslon);
 
-        Vector2 res = new Vector2(0,0);
+        double[] res = new Double[varNum];
 
         try{
             res = Algoritmo();
@@ -91,12 +63,10 @@ public abstract class _MetodoMultVar : MonoBehaviour
         }
 
         for(int i=0; i<varNum; i++){
-            //Mudar vetor de Vector2 para double[]
-            if(i==0)resultado.transform.GetChild(i).GetComponent<InputField>().text = Math.Round(res.x,4).ToString();
-            else resultado.transform.GetChild(i).GetComponent<InputField>().text = Math.Round(res.y,4).ToString();
+            resultado.transform.GetChild(i).GetComponent<InputField>().text = Math.Round(res[i],4).ToString();
         }
 
-        Debug.Log("x1otimo = "+x1otimo+", x2otimo = "+x2otimo+", x3otimo = "+x3otimo+", x4otimo = "+x4otimo+", x5otimo = "+x5otimo);
+        // Debug.Log("x1otimo = "+x1otimo+", x2otimo = "+x2otimo+", x3otimo = "+x3otimo+", x4otimo = "+x4otimo+", x5otimo = "+x5otimo);
     }
 }
 

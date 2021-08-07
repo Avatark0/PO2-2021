@@ -6,7 +6,7 @@ public class NewtonAuxiliar
 {
     private static string funcao;
     private static double epslon = 0.001;
-    private static double startingPoint = 1;
+    private static double startingPoint=1;
     
     private static double Algoritmo()
     {
@@ -19,11 +19,17 @@ public class NewtonAuxiliar
 
         for(int i=0; i<100; i++)
         {
+            //Debug.Log("NewtonAux: funcao = "+funcao+", x = "+x);
             dx = Derivadas.Dx(funcao, x);
             ddx = Derivadas.Ddx(funcao, x);
             
             xi = x;
-            x = xi - dx/ddx;
+            if(ddx!=0)
+                x = xi - dx/ddx;
+            else{
+                //Debug.Log("NewtonAux: ddx=0, x recebeu xi");
+                x = xi;
+            }
 
             //DebugValores(xi, x, dx, ddx);
 
@@ -39,22 +45,23 @@ public class NewtonAuxiliar
         Debug.Log("NewtonAux: xi = "+xi+", x = "+x+", dx = "+dx+", ddx = "+ddx);
     }
 
-    public static double CalcularLambda(string _funcao)
+    public static double CalcularLambda(string _funcao, double xIni)
     {
         funcao = _funcao;
+        startingPoint=xIni;
 
-        Debug.Log("Funcao = "+funcao);
+        //Debug.Log("NewtonAux: Funcao = "+funcao);
 
         double res = 0;
 
         try{
             res = Algoritmo();
         }catch{
-            Debug.Log("Erro no cálculo da função!");
+            Debug.Log("NewtonAux: Erro no cálculo da função!");
         }
 
-        Debug.Log("lambda = "+res);
+        Debug.Log("NewtonAux: lambda = "+Math.Round(res,8));
 
-        return Math.Round(res,4);
+        return Math.Round(res,8);
     }
 }
